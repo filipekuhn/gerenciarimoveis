@@ -1,0 +1,26 @@
+<section class="text-center">
+  <article class="card mb-5">
+    <div class="card-body">
+      <header class="card-title">
+        <h1><%= @title %></h1>
+      </header>
+  </article>
+  <div class="container">
+    <div class="row justify-content-between">
+      <% @users_properties.each do |users_property| %>
+        <div class="card col-5 rent-card" style="width: 20rem;">
+          <%= image_tag(users_property.image, width: "100%") %>
+          <div class="card-body">
+            <h4 class="card-title"><%= users_property.title %></h4>
+            <p class="card-text">
+              <%= users_property.description %><br>
+              <%= users_property.address %><br>
+            </p>
+            <span> <%= users_property.price %> </span><br>
+            <a href="#" class="btn btn-primary">Tenho interrese!</a>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
