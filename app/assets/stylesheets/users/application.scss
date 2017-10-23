@@ -1,0 +1,19 @@
+@import "bootstrap";
+@import "dashboard.scss";
+@import "properties";
+
+
+@font-face {
+  font-family: 'Heavy Webfont';
+  src: url(asset-url("./fonts/heavy-webfont.woff")) format('woff');
+}
+
+*{
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Heavy Webfont';
+}
+
+.nav-link {
+	color: #FFF !important;
+}
