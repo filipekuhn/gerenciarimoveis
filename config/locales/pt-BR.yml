@@ -1,0 +1,14 @@
+pt-BR:
+  activerecord:
+    models:
+      User:
+        one: "Usuário"
+        other: "Usuários"
+    attributes:
+      attribute_commons: &commons
+        name: "Nome"
+        email: "Email"
+        address: "Endereço"
+      contact:
+        message: "Mensagem"
+        <<: *commons
