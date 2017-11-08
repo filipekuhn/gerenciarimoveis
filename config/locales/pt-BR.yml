@@ -1,14 +1,27 @@
 pt-BR:
-  activerecord:
+  activerecord:          
     models:
-      User:
+      users:
+        property:
+          title: "Título"
+          description: "Descrição"
+          price: "Preço"
+          flag: "Tipo de anúncio"
+          address: "Endereço"
         one: "Usuário"
         other: "Usuários"
+
     attributes:
       attribute_commons: &commons
         name: "Nome"
         email: "Email"
+        password: "Senha"
+        title: "Título"
+        description: "Descrição"
+        price: "Preço"
+        flag: "Tipo de anúncio"
         address: "Endereço"
+
       contact:
         message: "Mensagem"
         <<: *commons

@@ -6,7 +6,7 @@
         <h1 class="jumbotron-heading">Área administrativa do usuário, <%= current_user.email %></h1>
         <p class="lead text-muted">Nessa área administrativa é possível gerenciar todos as suas publicações de imóveis.</p>
         <p>
-          <a href="#" class="btn btn-primary">Imóveis em alta</a>          
+          <a href="#" class="btn btn-primary">Imóveis em alta</a>
         </p>
       </div>
     </section>
@@ -16,18 +16,15 @@
 
 
         <div class="row">
+          <% @users_properties.each do |users_property| %>
           <div class="card col-4">
-            <img data-src="holder.js/100px280?theme=thumb" alt="Card image cap">
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <%= image_tag(users_property.image, width: "300px", height: "200px" ) %>
+            <p class="card-text"><%= users_property.title %></p>
+            <p class="card-text"><%= users_property.description %></p>
+            <p class="card-text"><%= users_property.price %></p>
           </div>
-          <div class="card col-4">
-            <img data-src="holder.js/100px280?theme=thumb" alt="Card image cap">
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          </div>
-          <div class="card col-4">
-            <img data-src="holder.js/100px280?theme=thumb" alt="Card image cap">
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          </div>
+          <% end %>
+
         </div>
 
       </div>

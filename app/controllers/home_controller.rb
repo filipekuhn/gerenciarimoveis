@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def index
+    @users_properties = Users::Property.all
   end
 
   def rent
