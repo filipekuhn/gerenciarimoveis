@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: 'home#index'
   #HomeController
   get 'rent', to: :rent, controller: 'home'
+  get 'show', to: :show, controller: 'home'
 
   #Users
   namespace :users do

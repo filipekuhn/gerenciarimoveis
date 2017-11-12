@@ -7,4 +7,8 @@ class HomeController < ApplicationController
     @title = "Imóveis para Alugar"
   	@users_properties = Users::Property.where(flag: "Alugar")
   end
+
+  def show
+    @users_property = Users::Property.where(id: users_property_params)
+  end
 end
