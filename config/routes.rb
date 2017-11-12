@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :admins
   root to: 'home#index'
   #HomeController
   get 'rent', to: :rent, controller: 'home'
@@ -14,5 +15,10 @@ Rails.application.routes.draw do
 
   #Devise
   devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  authenticate :admin do
+   namespace :admins do
+     root to: 'dashboard#index'
+   end
+ end
 end

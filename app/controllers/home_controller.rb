@@ -9,6 +9,6 @@ class HomeController < ApplicationController
   end
 
   def show
-    @users_property = Users::Property.where(id: users_property_params)
+    @users_property = Users::Property.find()
   end
 end
