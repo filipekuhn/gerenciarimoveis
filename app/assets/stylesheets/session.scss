@@ -1,0 +1,37 @@
+@import "bootstrap";
+
+/*************************************************************
+* HTML and body style
+**************************************************************/
+html, body {
+    height: 100%;
+    background: #fff;
+}
+
+body {
+    font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 13px;
+    color: #3e4855;
+    background-color: #fff;
+    line-height: 1.42857143;
+}
+
+/*************************************************************
+* Vertical and horizontal align
+**************************************************************/
+
+.container {
+  height: 100%;
+}
+
+.vertical-centering {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.horizontal-centering {
+  width: 350px;
+  margin: auto;
+}

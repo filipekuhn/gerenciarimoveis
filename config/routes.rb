@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   authenticate :admin do
    namespace :admins do
-     root to: 'dashboard#index'
+     get 'dashboard/index'
    end
  end
 end

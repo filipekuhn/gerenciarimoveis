@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
       elsif resource_name == :admin && not(['new', 'create'].include?(action_name))
         "admins/layouts/application"
       else
-        "layouts/session"
+        "layouts/login"
       end
     else
       "layouts/application"
@@ -25,13 +25,16 @@ class ApplicationController < ActionController::Base
    end
 
   def after_sign_in_path_for(resource)
-    return admins_root_path if resource == :admin
-    users_root_path
+    if resource == :admin
+      admins_dashboard_index_path
+    else resource == :user
+      users_dashboard_index_path
+    end
   end
 
   def after_sign_out_path_for(resource_or_scope)
     if resource_or_scope == :user
-      new_user_session_path
+      root_path
     elsif resource_or_scope == :admin
       new_admin_session_path
     else
