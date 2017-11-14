@@ -42,7 +42,7 @@ pt-BR:
       invalid: "%{authentication_keys} ou senha inválida."
       last_attempt: Você tem mais uma única tentativa antes de sua conta ser bloqueada.
       locked: A sua conta está bloqueada.
-      not_found_in_database:
+      not_found_in_database: Usuário não identificado
       timeout: A sua sessão expirou, por favor, faça login novamente para continuar.
       unauthenticated: Para continuar, faça login ou registre-se.
       unconfirmed: Antes de continuar, confirme a sua conta.
