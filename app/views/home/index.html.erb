@@ -11,22 +11,22 @@
       </p>
     </div>
   </article>
-</section>
+
 
 <!-- Listagem pública de todos imóveis publicados -->
-<section>
-  <div class="card-deck">
-    <div class="row">
 
-      <div class="col-lg-4 text-center">
+  <div class="container">
+
+      <div class="row">
         <% @users_properties.each do |users_property| %>
-        <%= image_tag(users_property.image, width: "300px", height: "200px" ) %>
-        <h2><%= users_property.title %></h2>
-        <p><%= users_property.description %></p>
-        <p><%= link_to 'Visualizar', show_path(users_property), class: 'btn btn-primary' %></p>
-      </div><!-- /.col-lg-4 -->
-      <% end %>
-    </div><!-- /.row -->
+        <div class="col-lg-4 public-card text-center">
+          <%= image_tag(users_property.image, width: "300px", height: "200px" ) %>
+          <h4 class="card-title"><%= users_property.title %></h4>
+          <p class="card-text"><%= users_property.description %></p>
+          <%= link_to 'Visualizar', property_path(users_property), class: 'btn btn-primary' %>
+        </div><!-- /.col-lg-4 -->
+        <% end %>
+      </div><!-- /.row -->
 
   </div>
 </section>

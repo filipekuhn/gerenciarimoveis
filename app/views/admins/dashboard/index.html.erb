@@ -1,1 +1,23 @@
-<h1>Área do administrativa</h1>
+<div class="windows-popup">
+  <h2 class="windows-popup-title"><%= @title %></h2>
+  <table class="table">
+    <thead class="thead-default">
+      <tr>
+        <th>Usuário</th>
+        <th>E-mail</th>
+        <th colspan="3">Ações</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.name %></td>
+          <td><%= user.email %></td>
+
+          <td><%= link_to 'Excluir', admins_user_path(user), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

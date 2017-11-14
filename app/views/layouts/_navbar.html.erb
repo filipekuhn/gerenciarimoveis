@@ -11,7 +11,7 @@
       <%= link_to 'Alugar', rent_path, class: 'nav-link' %>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Comprar</a>
+      <%= link_to 'Venda', sale_path, class: 'nav-link' %>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="#">Lançamentos</a>
@@ -27,7 +27,7 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <%= link_to 'Sair', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
-            <%= link_to 'Dashboard', users_dashboard_index_path, class: 'dropdown-item' %>
+            <%= link_to 'Dashboard', users_dashboard_path, class: 'dropdown-item' %>
           </div>
         </li>
       <% else %>

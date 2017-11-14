@@ -11,15 +11,15 @@
       'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'admins/application', 'data-turbolinks-track': 'reload' %>
 
-    <%= render 'layouts/shim' %>
+    <%= render 'admins/layouts/shim' %>
 
   </head>
   <body>
 
     <%= render 'admins/layouts/navbar' %>
+    <%= render 'shared/flash_messages' %>
 
-    <div class="container">
-      <%= render 'shared/flash_messages' %>
+    <div class="container">    
       <%= yield %>
     </div>
 

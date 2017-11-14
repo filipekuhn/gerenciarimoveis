@@ -1,0 +1,39 @@
+<div class="windows-popup">
+  <h2 class="windows-popup-title"><%= @property.title %></h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-4">
+        <%= image_tag(@property.image, width: "100%") %>
+      </div>
+      <div class="col-8">
+
+        <p>
+          <strong>Description:</strong>
+          <%= @property.description %>
+        </p>
+
+        <p>
+          <strong>Price:</strong>
+          <%= @property.price %>
+        </p>
+
+        <p>
+          <strong>Type:</strong>
+          <%= @property.flag %>
+        </p>
+
+        <p>
+          <strong>Address:</strong>
+          <%= @property.address %>
+        </p>
+
+
+
+      </div>
+      <div class="container text-center">
+        <%= link_to 'Voltar', root_path, class: 'btn btn-primary' %>
+        <a class="btn btn-primary" href="#" role="button">Tenho interesse &raquo;</a>        
+      </div>
+    </div>
+  </div>
+</div>

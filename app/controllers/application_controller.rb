@@ -25,10 +25,10 @@ class ApplicationController < ActionController::Base
    end
 
   def after_sign_in_path_for(resource)
-    if resource == :admin
-      admins_dashboard_index_path
-    elsif resource == :user
-      users_dashboard_index_path
+    if resource.is_a? Admin
+      admins_dashboard_path
+    elsif resource.is_a? User
+      users_dashboard_path
     else
       root_path
     end

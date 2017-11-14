@@ -9,7 +9,8 @@ class HomeController < ApplicationController
   	@users_properties = Users::Property.where(flag: "Alugar")
   end
 
-  def show
-    @users_property = Users::Property.find()
+  def sale
+    @title = "Gerenciar Imóveis - Venda"
+  	@users_properties = Users::Property.where(flag: "Vender")
   end
 end
