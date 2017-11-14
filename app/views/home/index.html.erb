@@ -17,15 +17,16 @@
 <section>
   <div class="card-deck">
     <div class="row">
-      <% @users_properties.each do |users_property| %>
+
       <div class="col-lg-4 text-center">
+        <% @users_properties.each do |users_property| %>
         <%= image_tag(users_property.image, width: "300px", height: "200px" ) %>
         <h2><%= users_property.title %></h2>
         <p><%= users_property.description %></p>
         <p><%= link_to 'Visualizar', show_path(users_property), class: 'btn btn-primary' %></p>
-        <!--<p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>-->
       </div><!-- /.col-lg-4 -->
       <% end %>
     </div><!-- /.row -->
+
   </div>
 </section>
