@@ -12,9 +12,10 @@
     </div>
   </article>
 </section>
-<section>
 
-  <div class="container">
+<!-- Listagem pública de todos imóveis publicados -->
+<section>
+  <div class="card-deck">
     <div class="row">
       <% @users_properties.each do |users_property| %>
       <div class="col-lg-4 text-center">
@@ -27,5 +28,4 @@
       <% end %>
     </div><!-- /.row -->
   </div>
-
 </section>
