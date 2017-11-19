@@ -11,23 +11,28 @@
       </div>
     </section>
 
-    <div class="album text-muted">
-      <div class="container">
-
-
-        <div class="row justify-content-between">
-          <% @users_properties.each do |users_property| %>
-          <div class="card col-4">
-            <%= image_tag(users_property.image, width: "300px", height: "200px" ) %>
-            <p class="card-text"><%= users_property.title %></p>
-            <p class="card-text"><%= users_property.description %></p>
-            <p class="card-text"><%= users_property.price %></p>
+    <div class="card-group">
+      <div class="row">
+        <% @users_properties.each do |users_property| %>
+        <div class="col-lg-4 public-card text-center">
+          <div class="card">
+            <%= image_tag(users_property.image, width: "300px", height: "200px", class: 'card-img-top' ) %>
+            <div class="card-block">
+              <h4 class="card-title"><%= users_property.title %></h4>
+              <p class="card-text"><%= users_property.description %></p>
+              <span> <%= users_property.address %> </span><br>
+              <span> <%= users_property.flag %> </span><br>
+              <span> <%= number_to_currency(users_property.price) %> </span><br>
+              <%= link_to 'Visualizar', users_property_path(users_property), class: 'btn btn-primary' %>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted"><%= users_property.updated_at.strftime("Atualizado em %d/%m/%Y às %H:%M") %></small> 
+            </div>
           </div>
-          <% end %>
-
         </div>
-
-      </div>
+        <% end %>
+      </div><!-- /.row -->
     </div>
+
   </main>
 </section>

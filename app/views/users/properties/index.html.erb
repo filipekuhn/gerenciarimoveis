@@ -17,7 +17,7 @@
           <td><%= users_property.title %></td>
           <td><%= users_property.address %></td>
           <td><%= users_property.flag %></td>
-          <td><%= users_property.price %></td>
+          <td><%= number_to_currency(users_property.price) %></td>
 
           <td><%= link_to 'Show', users_property, class: 'badge badge-info' %></td>
           <td><%= link_to 'Edit', edit_users_property_path(users_property), class: 'badge badge-primary' %></td>

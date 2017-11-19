@@ -1,3 +1,11 @@
 // Place all the styles related to the users/dashboard controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+
+body > .container {
+  padding: 30px 15px 0;
+}

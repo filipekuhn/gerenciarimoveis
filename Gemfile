@@ -15,6 +15,8 @@ gem 'devise'
 gem "paperclip", "~> 5.0.0"
 gem 'simple_form'
 gem 'rails-i18n', '~> 5.0.0'
+gem 'will_paginate', '~> 3.1.0'
+gem 'bootstrap-will_paginate'
 
 group :development, :test do
   gem 'byebug', platform: :mri

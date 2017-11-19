@@ -16,11 +16,12 @@
               <%= users_property.description %><br>
               <%= users_property.address %><br>
             </p>
-            <span> <%= users_property.price %> </span><br>
+            <span> <%= number_to_currency(users_property.price) %> </span><br>
             <a href="#" class="btn btn-primary">Tenho interesse!</a>
           </div>
         </div>
       <% end %>
     </div>
+    <%= will_paginate(@users_properties, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'justify-content-center') %>
   </div>
 </section>

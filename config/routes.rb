@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   root to: 'home#index'
   #HomeController
   get 'rent', to: :rent, controller: 'home'
-  get 'show', to: :show, controller: 'home'
   get 'sale', to: :sale, controller: 'home'
 
   resources :properties, only: [:show]
@@ -21,7 +20,7 @@ Rails.application.routes.draw do
   authenticate :admin do
    namespace :admins do
      get 'dashboard', to: 'dashboard#index'
-     resources :users, only: [:destroy] 
+     resources :users, only: [:destroy]
    end
  end
 end

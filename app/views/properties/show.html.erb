@@ -14,7 +14,7 @@
 
         <p>
           <strong>Price:</strong>
-          <%= @property.price %>
+          <%= number_to_currency(@property.price) %>
         </p>
 
         <p>
@@ -32,7 +32,7 @@
       </div>
       <div class="container text-center">
         <%= link_to 'Voltar', root_path, class: 'btn btn-primary' %>
-        <a class="btn btn-primary" href="#" role="button">Tenho interesse &raquo;</a>        
+        <a class="btn btn-primary" href="#" role="button">Tenho interesse &raquo;</a>
       </div>
     </div>
   </div>

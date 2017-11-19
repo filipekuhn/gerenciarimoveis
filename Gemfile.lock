@@ -55,6 +55,8 @@ GEM
       autoprefixer-rails (>= 6.0.3)
       popper_js (>= 1.12.3, < 2)
       sass (>= 3.5.2)
+    bootstrap-will_paginate (1.0.0)
+      will_paginate
     builder (3.2.3)
     byebug (9.1.0)
     capistrano (3.9.1)
@@ -226,6 +228,7 @@ GEM
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
+    will_paginate (3.1.6)
 
 PLATFORMS
   ruby
@@ -234,6 +237,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootstrap (~> 4.0.0.beta)
+  bootstrap-will_paginate
   byebug
   capistrano
   capistrano-bundler
@@ -259,6 +263,7 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 3.2)
   web-console (>= 3.5.1)
+  will_paginate (~> 3.1.0)
 
 BUNDLED WITH
    1.15.4
