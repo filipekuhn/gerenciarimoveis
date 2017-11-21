@@ -62,5 +62,5 @@
 
 set :stage, :production
 
-server '104.236.223.159', roles: %w(app web db), primary: true, user: 'deployer'
+server '104.236.223.159', roles: %w(app web db), primary: true, user: 'root'
 set :rails_env, "production"
