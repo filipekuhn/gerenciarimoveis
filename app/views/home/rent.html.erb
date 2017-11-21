@@ -5,23 +5,30 @@
         <h1><%= @title %></h1>
       </header>
   </article>
-  <div class="container">
-    <div class="row justify-content-between">
+  <div class="card-group">
+    <div class="row">
       <% @users_properties.each do |users_property| %>
-        <div class="card col-5 rent-card" style="width: 20rem;">
-          <%= image_tag(users_property.image, width: "100%") %>
-          <div class="card-body">
+      <div class="col-lg-4 public-card text-center">
+        <div class="card">
+          <%= image_tag(users_property.image, width: "300px", height: "200px", class: 'card-img-top' ) %>
+          <div class="card-block">
             <h4 class="card-title"><%= users_property.title %></h4>
-            <p class="card-text">
-              <%= users_property.description %><br>
-              <%= users_property.address %><br>
-            </p>
+            <p class="card-text"><%= users_property.description %></p>
+            <span> <%= users_property.address %> </span><br>
+            <span> <%= users_property.flag %> </span><br>
             <span> <%= number_to_currency(users_property.price) %> </span><br>
-            <a href="#" class="btn btn-primary">Tenho interesse!</a>
+            <%= link_to 'Visualizar', property_path(users_property), class: 'btn btn-primary' %>
+          </div>
+          <div class="card-footer">
+            <!--<small class="text-muted">Last updated 3 mins ago</small>-->
+            <small class="text-muted"><%= users_property.updated_at.strftime("Atualizado em %d/%m/%Y às %H:%M") %></small>
           </div>
         </div>
+      </div>
       <% end %>
-    </div>
+    </div><!-- /.row -->
+  </div>
+  <div class="public-card">
     <%= will_paginate(@users_properties, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'justify-content-center') %>
   </div>
 </section>

@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   def index
     @title = "Gerenciar Imóveis"
-    @users_properties = Users::Property.paginate(:page => params[:page], :per_page => 3)
+    @users_properties = Users::Property.paginate(:page => params[:page], :per_page => 9)
   end
 
   def rent
@@ -11,6 +11,6 @@ class HomeController < ApplicationController
 
   def sale
     @title = "Gerenciar Imóveis - Venda"
-  	@users_properties = Users::Property.where(flag: "Vender")
+  	@users_properties = Users::Property.where(flag: "Vender").paginate(:page => params[:page], :per_page => 3)
   end
 end

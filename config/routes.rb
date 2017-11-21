@@ -20,7 +20,9 @@ Rails.application.routes.draw do
   authenticate :admin do
    namespace :admins do
      get 'dashboard', to: 'dashboard#index'
+     get 'properties', to: 'properties#index'
      resources :users, only: [:destroy]
+     resources :properties, only: [:edit, :update, :destroy]
    end
  end
 end
