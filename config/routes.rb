@@ -22,7 +22,7 @@ Rails.application.routes.draw do
      get 'dashboard', to: 'dashboard#index'
      get 'properties', to: 'properties#index'
      resources :users, only: [:destroy]
-     resources :properties, only: [:edit, :update, :destroy]
+     resources :properties, only: [:edit, :update, :destroy, :show]
    end
  end
 end
