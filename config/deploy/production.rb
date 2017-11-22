@@ -1,6 +1,6 @@
 set :stage, :production
 
-server '104.236.223.159', roles: %w(app web db), primary: true, user: 'deployer'
+server '104.236.223.159', user: 'deployer', roles: %w(app web db), primary: true
 set :rails_env, "production"
 
 # server-based syntax
@@ -64,8 +64,3 @@ set :rails_env, "production"
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
 #   }
-
-set :stage, :production
-
-server '104.236.223.159', roles: %w(app web db), primary: true, user: 'root'
-set :rails_env, "production"
