@@ -3,7 +3,7 @@ lock "3.9.1"
 
 set :stages, ["production"]
 
-set :application,     'gerenciarimoveis'
+set :application,     'filipe.tsi.pro.br'
 set :branch,          'production'
 
 set :user,            'deployer'

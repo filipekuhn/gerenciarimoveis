@@ -1,3 +1,8 @@
+set :stage, :production
+
+server '104.236.223.159', roles: %w(app web db), primary: true, user: 'deployer'
+set :rails_env, "production"
+
 # server-based syntax
 # ======================
 # Defines a single server with a list of roles and multiple properties.
