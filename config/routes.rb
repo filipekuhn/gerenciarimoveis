@@ -21,8 +21,10 @@ Rails.application.routes.draw do
    namespace :admins do
      get 'dashboard', to: 'dashboard#index'
      get 'properties', to: 'properties#index'
-     resources :users, only: [:destroy]
-     resources :properties, only: [:edit, :update, :destroy, :show]
+
+     resources :users do
+       resources :properties, only: [:edit, :update, :destroy, :show]
+     end
    end
  end
 end
