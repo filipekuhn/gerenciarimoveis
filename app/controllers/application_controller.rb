@@ -11,6 +11,8 @@ class ApplicationController < ActionController::Base
         "users/layouts/application"
       elsif resource_name == :admin && not(['new', 'create'].include?(action_name))
         "admins/layouts/application"
+      elsif resource_name == :visitor && ['edit', 'update'].include?(action_name)
+        "layouts/application"
       else
         "layouts/login"
       end
@@ -29,6 +31,8 @@ class ApplicationController < ActionController::Base
       admins_dashboard_path
     elsif resource.is_a? User
       users_dashboard_path
+    elsif resource.is_a? Visitor
+      root_path
     else
       root_path
     end

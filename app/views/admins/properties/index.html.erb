@@ -13,9 +13,9 @@
           <span> <%= users_property.address %> </span><br>
           <span> <%= users_property.flag %> </span><br>
           <span> <%= number_to_currency(users_property.price) %> </span><br>
-          <%= link_to 'Visualizar', admins_property_path(users_property), class: 'btn btn-primary' %>
-          <%= link_to 'Editar', edit_admins_property_path(users_property), class: 'btn btn-warning' %>
-          <%= link_to 'Excluir', admins_property_path(users_property), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+          <%= link_to 'Visualizar', admins_user_property_path(user_id: users_property.user_id, id: users_property.id), class: 'btn btn-primary' %>
+          <%= link_to 'Editar', edit_admins_user_property_path(user_id: users_property.user_id, id: users_property.id), class: 'btn btn-warning' %>
+          <%= link_to 'Excluir', admins_user_property_path(user_id: users_property.user_id, id: users_property.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
         </div>
         <div class="card-footer">
           <!--<small class="text-muted">Last updated 3 mins ago</small>-->
