@@ -3,7 +3,7 @@ class Users::PropertiesController < Users::BaseController
 
   # GET /users/properties
   def index
-    @users_properties = Property.where(user_id: current_user)
+    @properties = Property.where(user_id: current_user)
     @title = "Gerenciar Imóveis"
   end
 
@@ -13,7 +13,7 @@ class Users::PropertiesController < Users::BaseController
 
   # GET /users/properties/new
   def new
-    @users_property = Property.new
+    @property = Property.new
     @title = "Cadastrar Imóvel"
   end
 
@@ -23,17 +23,17 @@ class Users::PropertiesController < Users::BaseController
 
   # POST /users/properties
   def create
-    @users_property = Property.new(users_property_params)
-    @users_property.user_id = current_user.id
-    if @users_property.save
+    @property = Property.new(users_property_params)
+    @property.user_id = current_user.id
+    if @property.save
 
       if params[:images]
         params[:images].each { |image|
-          @users_property.pictures.create(image: image)
+          @property.pictures.create(image: image)
         }
       end
 
-      redirect_to @users_property, notice: 'Property was successfully created.'
+      redirect_to @property, notice: 'Property was successfully created.'
     else
       render :new
     end
@@ -41,8 +41,8 @@ class Users::PropertiesController < Users::BaseController
 
   # PATCH/PUT /users/properties/1
   def update
-    if @users_property.update(users_property_params)
-      redirect_to @users_property, notice: 'Property was successfully updated.'
+    if @property.update(users_property_params)
+      redirect_to @property, notice: 'Property was successfully updated.'
     else
       render :edit
     end
@@ -50,14 +50,14 @@ class Users::PropertiesController < Users::BaseController
 
   # DELETE /users/properties/1
   def destroy
-    @users_property.destroy
+    @property.destroy
     redirect_to users_properties_url, notice: 'Property was successfully destroyed.'
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_users_property
-      @users_property = Property.find(params[:id])
+      @property = Property.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
