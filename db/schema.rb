@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171125011245) do
+ActiveRecord::Schema.define(version: 20171205164037) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,29 @@ ActiveRecord::Schema.define(version: 20171125011245) do
     t.index ["reset_password_token"], name: "index_auth_admins_on_reset_password_token", unique: true
   end
 
+  create_table "pictures", force: :cascade do |t|
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
+    t.bigint "properties_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["properties_id"], name: "index_pictures_on_properties_id"
+  end
+
+  create_table "properties", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.string "address"
+    t.float "price"
+    t.string "flag"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_properties_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -65,22 +88,6 @@ ActiveRecord::Schema.define(version: 20171125011245) do
     t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  end
-
-  create_table "users_properties", force: :cascade do |t|
-    t.string "title"
-    t.string "description"
-    t.string "address"
-    t.float "price"
-    t.string "flag"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "image_file_name"
-    t.string "image_content_type"
-    t.integer "image_file_size"
-    t.datetime "image_updated_at"
-    t.index ["user_id"], name: "index_users_properties_on_user_id"
   end
 
   create_table "visitors", force: :cascade do |t|
@@ -101,5 +108,6 @@ ActiveRecord::Schema.define(version: 20171125011245) do
     t.index ["reset_password_token"], name: "index_visitors_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "users_properties", "users"
+  add_foreign_key "pictures", "properties", column: "properties_id"
+  add_foreign_key "properties", "users"
 end
