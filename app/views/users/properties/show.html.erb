@@ -1,33 +1,33 @@
 <div class="windows-popup">
-  <h2 class="windows-popup-title"><%= @property.title %></h2  >
+  <h2 class="windows-popup-title"><%= @users_property.title %></h2  >
   <div class="container">
     <div class="row">
       <div class="col-4">
-        <%= image_tag(@property.image, width: "100%") %>
+        <%= image_tag(@users_property.image, width: "100%") %>
       </div>
       <div class="col-8">
 
         <p>
           <strong>Description:</strong>
-          <%= @property.description %>
+          <%= @users_property.description %>
         </p>
 
         <p>
           <strong>Price:</strong>
-          <%= number_to_currency(@property.price) %>
+          <%= number_to_currency(@users_property.price) %>
         </p>
 
         <p>
           <strong>Type:</strong>
-          <%= @property.flag %>
+          <%= @users_property.flag %>
         </p>
 
         <p>
           <strong>Address:</strong>
-          <%= @property.address %>
+          <%= @users_property.address %>
         </p>
 
-        <%= link_to 'Edit', edit_users_property_path(@property), class: 'badge badge-primary' %> |
+        <%= link_to 'Edit', edit_users_property_path(@users_property), class: 'badge badge-primary' %> |
         <%= link_to 'Back', users_properties_path, class: 'badge badge-warning' %>
       </div>
     </div>
