@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171211195528) do
+ActiveRecord::Schema.define(version: 20171213035400) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,10 +54,10 @@ ActiveRecord::Schema.define(version: 20171211195528) do
     t.string "image_content_type"
     t.integer "image_file_size"
     t.datetime "image_updated_at"
-    t.bigint "properties_id"
+    t.bigint "property_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["properties_id"], name: "index_pictures_on_properties_id"
+    t.index ["property_id"], name: "index_pictures_on_properties_id"
   end
 
   create_table "properties", force: :cascade do |t|
@@ -108,6 +108,17 @@ ActiveRecord::Schema.define(version: 20171211195528) do
     t.index ["reset_password_token"], name: "index_visitors_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "pictures", "properties", column: "properties_id"
+  create_table "visitors_properties", force: :cascade do |t|
+    t.bigint "property_id"
+    t.bigint "visitor_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["property_id"], name: "index_visitors_properties_on_property_id"
+    t.index ["visitor_id"], name: "index_visitors_properties_on_visitor_id"
+  end
+
+  add_foreign_key "pictures", "properties"
   add_foreign_key "properties", "users"
+  add_foreign_key "visitors_properties", "properties"
+  add_foreign_key "visitors_properties", "visitors"
 end

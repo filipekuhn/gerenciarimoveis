@@ -7,9 +7,11 @@ Rails.application.routes.draw do
   get 'sale', to: :sale, controller: 'home'
 
   resources :properties, only: [:show]
+  resources :visitors_properties, shallow: true
   #Users
   namespace :users do
     resources :properties
+
   end
   namespace :users do
     get 'dashboard', to: 'dashboard#index'
@@ -28,4 +30,6 @@ Rails.application.routes.draw do
      end
    end
  end
+
+
 end
