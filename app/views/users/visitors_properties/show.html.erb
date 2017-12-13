@@ -1,0 +1,26 @@
+<div class="windows-popup">
+  <h2 class="windows-popup-title"><%= @title %></h2>
+  <table class="table">
+    <thead class="thead-default">
+      <tr>
+        <th>Id</th>
+        <th>Visitante</th>
+        <th>E-mail</th>
+        <th>Propriedade</th>
+        <th>Data</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @visitors_property.each do |visitor| %>
+        <tr>
+          <td><%= visitor.id %></td>
+          <td><%= Visitor.find(visitor.visitor_id).name %></td>
+          <td><%= Visitor.find(visitor.visitor_id).email %></td>
+          <td><%= Property.find(visitor.property_id).title %></td>
+          <td><%= visitor.created_at.strftime("Criado em %d/%m/%Y às %H:%M") %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

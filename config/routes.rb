@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   #Users
   namespace :users do
     resources :properties
+    resources :visitors_properties, only: [:show]
 
   end
   namespace :users do
