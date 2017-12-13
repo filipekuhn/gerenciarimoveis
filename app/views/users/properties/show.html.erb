@@ -1,33 +1,55 @@
 <div class="windows-popup">
-  <h2 class="windows-popup-title"><%= @users_property.title %></h2  >
+  <h2 class="windows-popup-title"><%= @property.title %></h2  >
   <div class="container">
     <div class="row">
-      <div class="col-4">
-        <%= image_tag(@users_property.image, width: "100%") %>
+      <div class="col-6">
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <%= image_tag(@property.pictures.first.image, width: "600px", height: "380px") %>
+            </div>
+
+            <% @property.pictures.offset(1).each do |picture| %>
+              <div class="carousel-item">
+                <%= image_tag(picture.image, width: "600px", height: "380px") %>
+              </div>
+            <% end %>
+          </div>
+          <% unless @pictures.offset(1).empty? %>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          <% end %>
+        </div>
       </div>
-      <div class="col-8">
+      <div class="col-6">
 
         <p>
           <strong>Description:</strong>
-          <%= @users_property.description %>
+          <%= @property.description %>
         </p>
 
         <p>
           <strong>Price:</strong>
-          <%= number_to_currency(@users_property.price) %>
+          <%= number_to_currency(@property.price) %>
         </p>
 
         <p>
           <strong>Type:</strong>
-          <%= @users_property.flag %>
+          <%= @property.flag %>
         </p>
 
         <p>
           <strong>Address:</strong>
-          <%= @users_property.address %>
+          <%= @property.address %>
         </p>
 
-        <%= link_to 'Edit', edit_users_property_path(@users_property), class: 'badge badge-primary' %> |
+        <%= link_to 'Edit', edit_users_property_path(@property), class: 'badge badge-primary' %> |
         <%= link_to 'Back', users_properties_path, class: 'badge badge-warning' %>
       </div>
     </div>

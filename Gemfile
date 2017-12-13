@@ -18,6 +18,7 @@ gem 'rails-i18n', '~> 5.0.0'
 gem 'will_paginate', '~> 3.1.0'
 gem 'bootstrap-will_paginate'
 gem 'ffaker', '~> 2.7'
+gem 'font-awesome-rails'
 
 group :development, :test do
   gem 'byebug', platform: :mri

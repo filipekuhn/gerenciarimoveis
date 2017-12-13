@@ -3,4 +3,12 @@ class Visitor < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  has_many :visitors_property
+
+  validates :name, presence: true
+
+  def self.search(query)
+    order(:name).where("name ilike ?", "%#{params[:query]}%")
+  end
 end
