@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Bem vindo ao Gerenciar Imóveis, <%= @visitor.name %></h1>
+    <p>
+      Você demonstrou interesse no imóvel: <h3><%= @property.title %><h3>,<br>
+      seu usuário para acesso ao site é: <%= @visitor.email %>.<br>
+    </p>
+    <p>
+      Para fazer o login novamente, basta acessar o link: <%= @url %>.
+    </p>
+    <p>Obrigado pelo interesse em nossas publicações, atenciosamente Gerenciar Imóveis!</p>
+  </body>
+</html>

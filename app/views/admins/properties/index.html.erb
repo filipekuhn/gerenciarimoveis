@@ -6,7 +6,7 @@
     <% @users_properties.each do |users_property| %>
     <div class="col-lg-4 public-card text-center">
       <div class="card">
-        <%= image_tag(users_property.image, width: "300px", height: "200px", class: 'card-img-top' ) %>
+        <%= image_tag(users_property.pictures.first.image, width: "300px", height: "200px", class: 'card-img-top' ) %>
         <div class="card-block">
           <h4 class="card-title"><%= users_property.title %></h4>
           <p class="card-text"><%= users_property.description %></p>

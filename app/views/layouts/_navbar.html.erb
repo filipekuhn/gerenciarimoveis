@@ -14,9 +14,6 @@
       <li class="nav-item">
         <%= link_to 'Venda', sale_path, class: 'nav-link' %>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Lançamentos</a>
-      </li>
     </ul>
     <ul class="navbar-nav ml-auto">
       <% if user_signed_in? %>
@@ -29,9 +26,35 @@
             <%= link_to 'Dashboard', users_dashboard_path, class: 'dropdown-item' %>
           </div>
         </li>
+      <% elsif visitor_signed_in? %>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= current_visitor.name %>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <%= link_to 'Sair', destroy_visitor_session_path, method: :delete, class: 'dropdown-item' %>
+        </div>
+      </li>
+      <% elsif admin_signed_in? %>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= current_admin.name %>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <%= link_to 'Sair', destroy_admin_session_path, method: :delete, class: 'dropdown-item' %>
+          <%= link_to 'Dashboard', admins_dashboard_path, class: 'dropdown-item' %>
+        </div>
+      </li>
       <% else %>
-        <li class="nav-item">
-            <%= link_to 'Entrar', new_user_session_path, class: 'nav-link' %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Entrar
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <%= link_to 'Visitante', new_visitor_session_path,  class: 'dropdown-item' %>
+            <%= link_to 'Usuário', new_user_session_path,  class: 'dropdown-item' %>
+            <%= link_to 'Administrador', new_admin_session_path,  class: 'dropdown-item' %>
+          </div>
         </li>
       <% end %>
     </ul>

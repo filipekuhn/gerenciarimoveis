@@ -2,11 +2,17 @@ class Admins::PropertiesController < Admins::BaseController
 
   def index
     @title = "Gerenciar Imóveis"
-    @users_properties = Users::Property.paginate(:page => params[:page], :per_page => 9)
+    @users_properties = Property.paginate(:page => params[:page], :per_page => 9)
   end
 
   def show
-    @property = Users::Property.find(params[:id])
+    @property = Property.find(params[:id])
+    @pictures = @property.pictures
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @property }
+    end
   end
 
   # GET /admins/properties/1/edit
@@ -24,18 +30,20 @@ class Admins::PropertiesController < Admins::BaseController
 
   # DELETE /admins/properties/1
   def destroy
-    @users_property.destroy
-    redirect_to users_properties_url, notice: 'Property was successfully destroyed.'
+    @property = Property.find(params[:id])
+    @property.destroy
+
+    redirect_to admins_properties_url, notice: 'Property was successfully destroyed.'
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_users_property
-      @users_property = Users::Property.find(params[:id])
+      @users_property = Property.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
     def users_property_params
-      params.require(:users_property).permit(:title, :description, :address, :price, :flag, :image)
+      params.require(:property).permit(:title, :description, :address, :price, :flag, :image)
     end
 end

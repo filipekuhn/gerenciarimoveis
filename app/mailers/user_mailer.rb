@@ -1,9 +1,20 @@
 class UserMailer < ApplicationMailer
-  default from: 'notifications@example.com'
+  default from: 'gerenciarimoveisapp@gmail.com'
 
-  def welcome_email(user)
+  def visitor_email(visitor, property)
+    @visitor = visitor
+    @property = property
+    @url = 'http://filipe.tsi.pro.br/'
+    
+    mail(to: @visitor.email, subject: 'Confirmação de interesse em imóvel do Gerenciar Imóveis')
+  end
+
+  def user_email(visitor, user, property)
+    @visitor = visitor
     @user = user
-    @url  = 'http://example.com/login'
-    mail(to: @user.email, subject: 'Welcome to My Awesome Site')
+    @property = property
+
+    mail(to: @user.email, subject: 'Visitantes demonstraram interesse em um de seus imóveis' )
+
   end
 end

@@ -3,11 +3,11 @@
   <table class="table">
     <thead class="thead-default">
       <tr>
-        <th>Title</th>
-        <th>Address</th>
-        <th>Type</th>
-        <th>Price</th>
-        <th colspan="3">Actions</th>
+        <th>Título</th>
+        <th>Endereço</th>
+        <th>Tipo</th>
+        <th>Preço</th>
+        <th colspan="3">Ações</th>
       </tr>
     </thead>
 
@@ -19,9 +19,9 @@
           <td><%= users_property.flag %></td>
           <td><%= number_to_currency(users_property.price) %></td>
 
-          <td><%= link_to 'Show', users_property_path(users_property), class: 'btn btn-info' %></td>
-          <td><%= link_to 'Edit', edit_users_property_path(users_property), class: 'btn btn-warning'  %></td>
-          <td><%= link_to 'Destroy', users_property_path(users_property), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+          <td><%= link_to 'Visualizar', users_property_path(users_property), class: 'btn btn-info' %></td>
+          <td><%= link_to 'Editar', edit_users_property_path(users_property), class: 'btn btn-warning'  %></td>
+          <td><%= link_to 'Excluir', users_property_path(users_property), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
         </tr>
       <% end %>
     </tbody>
