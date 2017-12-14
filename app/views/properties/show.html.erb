@@ -55,7 +55,7 @@
       </div>
       <div class="col-10">
         <div class="container text-right">
-          <%= link_to 'Voltar', root_path, class: 'btn btn-primary' %>
+          <%= link_to 'Voltar', :back, class: 'btn btn-primary' %>
           <%= link_to 'Mostrar Interesse', visitors_properties_path(:property_id => @property.id), method: :create, data: { confirm: 'Tem certeza que deseja mostrar interesse?' }, class: 'btn btn-primary' %>
         </div>
       </div>

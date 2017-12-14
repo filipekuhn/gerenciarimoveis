@@ -8,6 +8,7 @@
         <th>E-mail</th>
         <th>Propriedade</th>
         <th>Data</th>
+        <th colspan="1">Visualizar</th>
       </tr>
     </thead>
 
@@ -19,6 +20,8 @@
           <td><%= Visitor.find(visitor.visitor_id).email %></td>
           <td><%= Property.find(visitor.property_id).title %></td>
           <td><%= visitor.created_at.strftime("Criado em %d/%m/%Y às %H:%M") %></td>
+
+          <td><%= link_to 'Visualizar', users_property_path(visitor.property_id), class: 'btn btn-info' %></td>
         </tr>
       <% end %>
     </tbody>
