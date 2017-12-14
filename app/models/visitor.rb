@@ -5,7 +5,6 @@ class Visitor < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :visitors_properties
-  has_many :shared_lists, through: :visitors_properties, source: :property
 
   validates :name, presence: true
 

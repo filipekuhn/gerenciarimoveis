@@ -3,7 +3,7 @@ class Users::PropertiesController < Users::BaseController
 
   # GET /users/properties
   def index
-    @properties = Property.where(user_id: current_user)
+    @properties = Property.where(user_id: current_user).order(updated_at: :desc)
     @title = "Gerenciar Imóveis"
   end
 
