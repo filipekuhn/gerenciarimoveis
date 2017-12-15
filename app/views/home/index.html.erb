@@ -20,7 +20,11 @@
     <% @properties.each do |property| %>
     <div class="col-lg-4 public-card text-center">
       <div class="card">
-        <%= image_tag(property.pictures.first.image, width: "300px", height: "200px", class: 'card-img-top' ) %>        
+        <% if property.pictures.empty? %>
+          <%= image_tag('no-room.jpg', width: "300px", height: "200px", class: 'card-img-top' ) %>
+        <% else %>
+          <%= image_tag(property.pictures.first.image, width: "300px", height: "200px", class: 'card-img-top' ) %>
+        <% end %>
         <div class="card-block">
           <h4 class="card-title"><%= property.title %></h4>
           <p class="card-text"><%= property.description %></p>

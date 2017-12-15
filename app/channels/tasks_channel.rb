@@ -2,7 +2,7 @@ class TasksChannel < ApplicationCable::Channel
   def subscribed
     # stream_from "some_channel"
     puts "subscribed"
-    stream_from "list:#{params['list_id']}:tasks"
+    stream_from "property:#{params['id']}"
   end
 
   def unsubscribed

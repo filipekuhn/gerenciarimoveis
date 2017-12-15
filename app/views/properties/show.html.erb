@@ -6,7 +6,11 @@
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <%= image_tag(@property.pictures.first.image, width: "600px", height: "380px") %>
+              <% if @property.pictures.empty? %>
+                <%= image_tag('no-room.jpg', width: "600px", height: "380px") %>
+              <% else %>
+                <%= image_tag(@property.pictures.first.image, width: "600px", height: "380px") %>
+              <% end %>
             </div>
 
             <% @property.pictures.offset(1).each do |picture| %>
@@ -31,22 +35,22 @@
       <div class="col-6">
 
         <p>
-          <strong>Description:</strong>
+          <strong>Descrição:</strong>
           <%= @property.description %>
         </p>
 
         <p>
-          <strong>Price:</strong>
+          <strong>Preço:</strong>
           <%= number_to_currency(@property.price) %>
         </p>
 
         <p>
-          <strong>Type:</strong>
+          <strong>Tipo:</strong>
           <%= @property.flag %>
         </p>
 
         <p>
-          <strong>Address:</strong>
+          <strong>Endereço:</strong>
           <%= @property.address %>
         </p>
 

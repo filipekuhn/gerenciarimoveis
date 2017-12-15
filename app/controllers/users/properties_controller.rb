@@ -3,7 +3,7 @@ class Users::PropertiesController < Users::BaseController
 
   # GET /users/properties
   def index
-    @properties = Property.where(user_id: current_user).order(updated_at: :desc)
+    @properties = Property.where(user_id: current_user).paginate(:page => params[:page], :per_page => 10).order(updated_at: :desc)
     @title = "Gerenciar Imóveis"
   end
 
@@ -49,6 +49,12 @@ class Users::PropertiesController < Users::BaseController
   # PATCH/PUT /users/properties/1
   def update
     if @property.update(users_property_params)
+
+      if params[:images]
+        params[:images].each { |image|
+          @property.pictures.create(image: image)
+        }
+      end
       redirect_to @property, notice: 'Property was successfully updated.'
     else
       render :edit
