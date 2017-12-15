@@ -1,5 +1,5 @@
 Admin.create_with(password: '123456').find_or_create_by!(email: 'filipe@gmail.com')
-User.create_with(password: '123456').find_or_create_by!(email: 'filipekuhn@gmail.com')
+#User.create_with(password: '123456').find_or_create_by!(email: 'filipekuhn@gmail.com', name:'Filipe User' )
 
 
 require 'faker'
