@@ -18,7 +18,7 @@
   @import "font-awesome.css";
 
   .auth-login {
-  background-image: url("./background-auth.jpg");
+  background-image: asset-url("./background-auth.jpg");
   background-size: 100%;
   background-repeat: no-repeat;
 }

@@ -3,7 +3,7 @@ class Users::PropertiesController < Users::BaseController
 
   # GET /users/properties
   def index
-    @properties = Property.where(user_id: current_user).paginate(:page => params[:page], :per_page => 10).order(updated_at: :desc)
+    @properties = Property.where(user_id: current_user).paginate(:page => params[:page], :per_page => 12).order(updated_at: :desc)
     @title = "Gerenciar Imóveis"
   end
 

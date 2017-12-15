@@ -32,32 +32,15 @@ ActiveRecord::Schema.define(version: 20171213035400) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
-  create_table "auth_admins", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer "sign_in_count", default: 0, null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.inet "current_sign_in_ip"
-    t.inet "last_sign_in_ip"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_auth_admins_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_auth_admins_on_reset_password_token", unique: true
-  end
-
   create_table "pictures", force: :cascade do |t|
     t.string "image_file_name"
     t.string "image_content_type"
     t.integer "image_file_size"
     t.datetime "image_updated_at"
-    t.bigint "property_id"
+    t.bigint "properties_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["property_id"], name: "index_pictures_on_properties_id"
+    t.index ["properties_id"], name: "index_pictures_on_properties_id"
   end
 
   create_table "properties", force: :cascade do |t|
@@ -117,7 +100,7 @@ ActiveRecord::Schema.define(version: 20171213035400) do
     t.index ["visitor_id"], name: "index_visitors_properties_on_visitor_id"
   end
 
-  add_foreign_key "pictures", "properties"
+  add_foreign_key "pictures", "properties", column: "properties_id"
   add_foreign_key "properties", "users"
   add_foreign_key "visitors_properties", "properties"
   add_foreign_key "visitors_properties", "visitors"
