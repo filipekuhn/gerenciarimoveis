@@ -4,7 +4,7 @@ class Visitor < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :visitors_properties
+  has_many :visitors_properties, dependent: :destroy
 
   validates :name, presence: true
 
