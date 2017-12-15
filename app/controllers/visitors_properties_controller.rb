@@ -19,8 +19,8 @@ class VisitorsPropertiesController < ApplicationController
     if @visitor_property.save
       redirect_to property_path(@visitor_property.property_id), notice: 'Marcado interesse com sucesso.'
 
-      UserMailer.user_email(@visitor, @user, @property).deliver_now
-      UserMailer.visitor_email(@visitor, @property).deliver_now
+      UserMailer.user_email(@visitor, @user, @property).deliver_later
+      UserMailer.visitor_email(@visitor, @property).deliver_later
 
     else
       render root_path, notice: 'Algo deu errado, por favor entre em contato com o administrador!'
