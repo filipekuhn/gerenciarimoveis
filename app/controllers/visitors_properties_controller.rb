@@ -19,6 +19,10 @@ class VisitorsPropertiesController < ApplicationController
     if @visitor_property.save
       redirect_to property_path(@visitor_property.property_id), notice: 'Marcado interesse com sucesso.'
 
+      data = { count: VisitorsProperty.where(property_id: @visitor_property.property_id).count, id: @visitor_property.property_id}
+      #data = data = VisitorsProperty.where(property_id: @visitor_property.property_id).count
+      ActionCable.server.broadcast "propertynews", data
+
       UserMailer.user_email(@visitor, @user, @property).deliver_later
       UserMailer.visitor_email(@visitor, @property).deliver_later
 

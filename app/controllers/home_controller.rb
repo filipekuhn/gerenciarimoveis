@@ -3,6 +3,7 @@ class HomeController < ApplicationController
     @title = "Gerenciar Imóveis"
     @properties = Property.paginate(:page => params[:page], :per_page => 12).order(updated_at: :desc)
 
+    #@visitor_property = VisitorsProperty.where(property_id: @properties.ids).count
 
   end
 

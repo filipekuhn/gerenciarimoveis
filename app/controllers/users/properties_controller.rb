@@ -40,6 +40,8 @@ class Users::PropertiesController < Users::BaseController
         }
       end
 
+      data = {property: "oi"}
+      ActionCable.server.broadcast "propertynews", data
       redirect_to @property, notice: 'Property was successfully created.'
     else
       render :new
